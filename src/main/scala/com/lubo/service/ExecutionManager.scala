@@ -15,7 +15,7 @@ object ExecutionManager {
   implicit val sttpBackend = AsyncHttpClientFutureBackend()
 
   def getUsersFromWorker()(implicit ec: ExecutionContext): Future[Users] = {
-    val request = basicRequest.get(uri"http://worker-service").response(asJson[Users])
+    val request = basicRequest.get(uri"http://worker-service:8080").response(asJson[Users])
     request.send().map(response => {
           response.body match {
             case Right(users) => users
