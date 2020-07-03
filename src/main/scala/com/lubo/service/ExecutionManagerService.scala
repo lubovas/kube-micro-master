@@ -1,9 +1,11 @@
 package com.lubo.service
 
+import com.lubo.domain.Constants._
 import org.scalatra._
 
-import scala.concurrent.ExecutionContext
-import scala.util.{Failure, Success}
+import scala.concurrent.duration._
+import scala.concurrent.{Await, ExecutionContext}
+import scala.util.{Failure, Success, Try}
 
 class ExecutionManagerService extends ScalatraServlet {
 
@@ -13,11 +15,11 @@ class ExecutionManagerService extends ScalatraServlet {
     views.html.hello()
   }
 
-  get("/executions") {
-    ExecutionManager.getUsersFromWorker().onComplete({
-      case Success(users) => println(users)
-      case Failure(ex) => println(ex)
-    })
+  get("/users") {
+    val result = Try(Await.result(ExecutionManager.getUsersFromWorker(), 30.seconds))
+    result match {
+      case Success(users) => Ok(users, ApplicationJson)
+      case Failure(ex) => InternalServerError(ex, ApplicationJson)
+    }
   }
-
 }

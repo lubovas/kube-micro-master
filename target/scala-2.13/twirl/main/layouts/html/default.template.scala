@@ -40,7 +40,7 @@ Seq[Any](format.raw/*2.1*/("""<html>
 
               /*
                   -- GENERATED --
-                  DATE: 2020-07-03T15:46:41.276
+                  DATE: 2020-07-03T17:05:13.294
                   SOURCE: /Users/Lubo/Documents/Code/kube-microservice/kube-micro-master/src/main/twirl/layouts/default.scala.html
                   HASH: ab59b4dddbafceb665de3cb0f7ce9f2c8dc5df51
                   MATRIX: 582->1|721->47|775->75|800->80|863->117|891->125|927->136|951->140|980->143
