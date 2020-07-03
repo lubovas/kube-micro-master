@@ -1,6 +1,7 @@
 package com.lubo.service
 
 import com.lubo.domain.Domain.Users
+import sttp.model.Uri
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -15,7 +16,9 @@ object ExecutionManager {
   implicit val sttpBackend = AsyncHttpClientFutureBackend()
 
   def getUsersFromWorker()(implicit ec: ExecutionContext): Future[Users] = {
-    val request = basicRequest.get(uri"http://worker-service:8080").response(asJson[Users])
+    val uri = Uri("worker-service", 8080)
+    println("I am the new master....")
+    val request = basicRequest.get(uri).response(asJson[Users])
     request.send().map(response => {
           response.body match {
             case Right(users) => users

@@ -34,7 +34,7 @@ Seq[Any](_display_(/*2.2*/layouts/*2.9*/.html.default("Scalatra: a tiny, Sinatra
 
               /*
                   -- GENERATED --
-                  DATE: 2020-07-03T11:59:12.148
+                  DATE: 2020-07-03T14:59:45.997
                   SOURCE: /Users/Lubo/Documents/Code/kube-microservice/kube-micro-master/src/main/twirl/views/hello.scala.html
                   HASH: 6a5309d0d842c7b54c83aa665c985afefdc12c70
                   MATRIX: 559->1|655->5|669->12|772->106|811->107|840->110
